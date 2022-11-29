@@ -9,9 +9,13 @@ import (
 )
 
 func main() {
-	var dataset = [6]string{"64kb", "128kb", "256kb", "512kb", "1024kb", "2048kb"}
-	sh := shell.NewShell("URL:5001")
+	var dataset = [5]string{"128kb", "64mb", "128mb", "256mb", "512mb"} //, "1024kb", "2048kb"}
+	sh := shell.NewShell("54.176.172.176:5001")
+	time.Sleep(5 * time.Second)
+
 	for _, s := range dataset {
+
+		fmt.Println(s)
 		startTime := time.Now()
 
 		file, err := os.Open("dataset/" + s)
@@ -24,5 +28,6 @@ func main() {
 		elapsedTime := time.Since(startTime)
 
 		fmt.Printf("실행시간: %s\n", elapsedTime)
+		time.Sleep(5 * time.Second)
 	}
 }
